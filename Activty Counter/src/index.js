@@ -1,13 +1,10 @@
 import React from 'react'
-import {render } from 'react-dom'
-import {TripleDoubleCount} from './componets/TripleDoubleCounter'
+import { render } from 'react-dom'
+import { App } from './componets/app'
 
 window.React = React
 
 render(
-     <TripleDoubleCount total={31}
-                        wins={12}
-                        morethan30={12}
-                        goal={42} />,
+     <App />,
     document.getElementById('reactor-container')
-);
+)
