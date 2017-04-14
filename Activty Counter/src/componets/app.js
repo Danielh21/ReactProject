@@ -2,7 +2,8 @@
 import {Component } from 'react'
 import {TripleDoubleCount} from './TripleDoubleCounter'
 import {TripleCountList} from './TripleCountList'
-
+import {AddTripledouble} from './AddTripledouble'
+import {Menu} from './Menu'
 
 export class App extends Component{
     constructor(props){
@@ -43,12 +44,23 @@ export class App extends Component{
     render(){
         return (
         <div className="app">
-        <TripleCountList tripleDoubles= {this.state.tripleDoubles}/>
-        <TripleDoubleCount total= {this.countTripleDoubles()}
+            <Menu />
+            {(this.props.location.pathname === "/") ?
+            <TripleDoubleCount total= {this.countTripleDoubles()}
                            wins = {this.countTripleDoubles("win")}
                            morethan30 = {this.countTripleDoubles("over30Points")}
                            goal = {100}         
                                     />
+            :
+            (this.props.location.pathname === "/add") ?
+            <AddTripledouble />
+            :
+            (this.props.location.pathname === "/list") ? 
+        <TripleCountList tripleDoubles= {this.state.tripleDoubles}
+        /> :
+            null
+            }
+        
         </div>
         )   
     }

@@ -13,6 +13,7 @@ module.exports = {
         contentBase: './dist',
         port: 3000
     },
+    devtool: 'source-map',
     module: {
         loaders: [
             {
