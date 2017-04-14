@@ -16,7 +16,7 @@ render(
         <div>
         <h1>Hello to You</h1>
             <Route exact path="/" component= {App}/>
-            <Route path="/list" component= {App}/>
+            <Route path="/list/:filter?" component= {App}/>
             <Route exact path="/add" component= {App}/>
             <Route exact path="*" component= {Whopps404}/>
         </div>

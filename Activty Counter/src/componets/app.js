@@ -55,8 +55,9 @@ export class App extends Component{
             (this.props.location.pathname === "/add") ?
             <AddTripledouble />
             :
-            (this.props.location.pathname === "/list") ? 
+            (this.props.match.path === "/list/:filter?") ? 
         <TripleCountList tripleDoubles= {this.state.tripleDoubles}
+            filter= {this.props.match.params.filter}
         /> :
             null
             }

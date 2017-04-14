@@ -3,9 +3,17 @@ import {Link} from 'react-router-dom'
 
 export const TripleCountList = ({tripleDoubles, filter}) =>{
     const filteredTripleDoubles = 
-    (!filter || !filter.match(/wins|30points/)) ?
+    (!filter || !filter.match(/wins|30point/)) ?
         tripleDoubles :
-        tripleDoubles.filter(trip => trip[filter])
+        tripleDoubles.filter(function(trip){
+            if(filter === "wins"){
+                return trip["win"]
+            }
+            else{
+                return trip["over30Points"]
+            }
+            
+        })
 
     return (
     <div className="tripleDList">
