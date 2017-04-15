@@ -5,6 +5,8 @@ import {TripleCountList} from './TripleCountList'
 import {AddTripledouble} from './AddTripledouble'
 import {Menu} from './Menu'
 
+
+
 export class App extends Component{
     constructor(props){
         super(props);
@@ -12,25 +14,24 @@ export class App extends Component{
             tripleDoubles:  [
                 {
                     opponent: "Golden State Warriors",
-                    date: new Date ("9/29/2016"),
+                    date: "2016-01-02",
                     win: true,
                     over30Points: false
-                },
-                {
-                    opponent: "Cleveland Cavaliers",
-                    date: new Date ("2/12/2016"),
-                    win: true,
-                    over30Points: true
-                },
-                {
-                    opponent: "Boston Celtics",
-                    date: new Date ("12/2/2016"),
-                    win: false,
-                    over30Points: true
                 }
             ]
         }
+        this.addNewTripleDouble = this.addNewTripleDouble.bind(this)
+    }
+
+    addNewTripleDouble(trip){
+        this.setState({
+            tripleDoubles: [
+                ...this.state.tripleDoubles,
+                trip
+            ]
+        })
     }  
+
     countTripleDoubles(filter){
         return this.state.tripleDoubles.filter((tripD)=>{
             if(filter){
@@ -53,7 +54,7 @@ export class App extends Component{
                                     />
             :
             (this.props.location.pathname === "/add") ?
-            <AddTripledouble />
+            <AddTripledouble onNewTripleDouble = {this.addNewTripleDouble}  />
             :
             (this.props.match.path === "/list/:filter?") ? 
         <TripleCountList tripleDoubles= {this.state.tripleDoubles}

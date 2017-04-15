@@ -18,7 +18,6 @@ render(
             <Route exact path="/" component= {App}/>
             <Route path="/list/:filter?" component= {App}/>
             <Route exact path="/add" component= {App}/>
-            <Route exact path="*" component= {Whopps404}/>
         </div>
     </HashRouter>,
 
