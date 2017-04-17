@@ -1,7 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { App } from './componets/app'
-import { Whopps404 } from './componets/Whopps404'
+import Member from './componets/member'
+import MemberList from './componets/MemberList'
+
 import {
   HashRouter,
   Route,
@@ -11,7 +13,17 @@ import {
 window.React = React
 
 render(
-    // <BasicExample/>,
+
+        <MemberList />,
+
+        /*<Member admin={true}
+            name="Edna Welch"
+            email="edna.welch88@example.com"
+            thumbnail="https://randomuser.me/api/portraits/women/90.jpg"
+            makeAdmin={(email) => console.log(email)}/>, */
+
+
+/*
      <HashRouter>
         <div>
         <h1>Hello to You</h1>
@@ -19,7 +31,7 @@ render(
             <Route path="/list/:filter?" component= {App}/>
             <Route exact path="/add" component= {App}/>
         </div>
-    </HashRouter>,
+    </HashRouter>,*/
 
     document.getElementById('reactor-container')
 )
